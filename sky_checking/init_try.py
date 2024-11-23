@@ -16,7 +16,7 @@ if __name__ == "__main__":
     token = token.strip()
     day_obs: str = "2024-06-26"
     #url = f"https://user:{token}@usdf-rsp.slac.stanford.edu/consdb"
-    consdb_visits: ConsDBVisits = load_consdb_visits("lsstcomcamsim", day_obs, url=url)
+    consdb_visits: ConsDBVisits = load_consdb_visits("lsstcomcamsim", day_obs)
     schema_converter: SchemaConverter = SchemaConverter()
 
     opsim: pd.DataFrame = consdb_visits.opsim
@@ -28,4 +28,3 @@ if __name__ == "__main__":
     "ORDER BY table_schema,table_name;")
 
     ack = query_consdb(que)
-    
